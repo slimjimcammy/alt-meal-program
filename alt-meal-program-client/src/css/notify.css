@@ -1,0 +1,30 @@
+/* .notify {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin: 0 auto;
+    gap: 1em;
+    padding: 1em 2em;
+    width: 90vw;
+    min-height: 50%;
+    max-width: 650px;
+    background-color: var(--gray);
+    top: 50%;
+    left: 50%;
+} */
+
+.notif {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.notify {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

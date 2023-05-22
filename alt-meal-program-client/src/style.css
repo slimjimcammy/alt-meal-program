@@ -1,0 +1,232 @@
+:root {
+    --pink: #f93195;
+    --light-orange: #F3900E;
+    --orange: #ED4F05;
+    --green: #00FFDD;
+    --blue: #2FA4FF;
+    --gray: #383838;
+    /* --light-gray: #E0E0E0; */
+    --line: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+body {
+    background: radial-gradient(ellipse, var(--gray), black);
+    background-color: black;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 100%;
+}
+
+main {
+    margin: 0 auto;
+    position: relative;
+    max-width: 1920px;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+h1, h2, h3, p, blockquote, a, input, textarea, button, select, span {
+    font-family: "Raleway";
+    margin: 0;
+    color: white;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+.h1-gradient {
+    background-image: linear-gradient(to bottom, white, silver);
+    background-clip: text;
+    color: transparent;
+}
+
+.title {
+    font-size: 30px;
+    color: white;
+}
+
+.subtitle {
+    font-size: 20px;
+    color: white;
+}
+
+p, blockquote {
+    font-weight: 200;
+}
+
+img, picture, svg, video {
+    display: block;
+    max-width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 1em;
+    padding: 1em 2em;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(3.3px);
+    -webkit-backdrop-filter: blur(3.3px);
+    border: var(--line);
+    border-radius: 7px;
+    width: 90vw;
+    min-height: 50%;
+    max-width: 650px;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+}
+
+.form-item > input {
+    flex-grow: 1;
+}
+
+label {
+    display: inline-block;
+    background-color: transparent;
+    color: white;
+    font-family: "Raleway";
+    font-size: 20px;
+    margin-left: 3px;
+}
+
+input[type="text"],
+input[type="time"],
+input[type="date"],
+input[type="password"],
+textarea,
+select {
+    cursor: pointer;
+    position: relative;
+    background-color: transparent;
+    border: none;
+    border-bottom: var(--line);
+    font-size: 16px;
+    min-height: 30px;
+    outline: none;
+    padding: 7px 4px;
+}
+
+button {
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1);
+    background-repeat: none;
+    border: var(--line);
+    border-radius: 100px;
+    padding: 0.25em 0.65em;
+    color: white;
+    /* max-width: 500px; */
+    min-height: 30px;
+}
+
+button:before {
+    /* transition: ease-in 5ms rgba(255, 255, 255, 0.3); */
+    transition: 0.25s all ease;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    content: "";
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: inherit;
+}
+
+button:hover:before {
+    transition: 0.25s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    z-index: 1;
+}
+
+a {
+    display: inline-block;
+    position: relative;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+section {
+    padding: 0 1rem;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.blob {
+    max-width: 42rem;
+    max-height: 42rem;
+    position: absolute;
+}
+
+#b1 {
+    background: linear-gradient(to top right, var(--pink), var(--light-orange));
+    border-radius: 30% 70% 32% 68% / 44% 30% 70% 56%;
+    z-index: -1;
+    top: 20em;
+    left: -8em;
+    width: 75vw;
+    height: 75vh;
+}
+
+#b2 {
+    background: linear-gradient(to bottom left, var(--green), var(--blue));
+    width: 50vw;
+    height: 50vh;
+    z-index: -1;
+    top: 4em;
+    right: -3.5em;
+    border-radius: 30% 70% 17% 83% / 75% 12% 88% 25%;
+}
+
+.icon {
+    filter: invert(99%) sepia(2%) saturate(112%) hue-rotate(358deg) brightness(119%) contrast(100%);
+    max-width: 50%;
+    max-height: 50%;
+}
+
+iframe {
+    margin-top: 0.5em;
+    width: 100%;
+    height: 90%;
+}

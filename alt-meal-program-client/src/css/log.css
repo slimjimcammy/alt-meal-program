@@ -1,0 +1,74 @@
+#log {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#log > .quit-button {
+    position: absolute;
+    top: 29%;
+    left: 76%;
+}
+
+.hide-quit {
+    display: none;
+}
+
+.login > h1 {
+    margin-bottom: 1.25em;
+}
+
+.login > button {
+    margin-top: 1em;
+    font-size: 16px;
+    padding: 10px 16px;
+}
+
+#change {
+    margin-top: 0.75em;
+    cursor: pointer;
+    color: var(--blue);
+}
+
+#change::after {
+    background-color: var(--blue);
+}
+
+.show-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--gray);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+.hide-form {
+    display: none;
+}
+
+.show-form > .title {
+    font-size: 20px;
+    margin-bottom: 0.75em;
+}
+/* 
+.show-form > button {
+    margin-top: 1em;
+    font-size: 16px;
+    padding: 10px 16px;
+} */
+
+
+@media (min-width: 575px) {
+    .show-form > .title {
+        font-size: 30px;
+        margin-bottom: 0.75em;
+    }
+}
+
+@media (max-width: 450px) {
+    .show-form > .selectors > .submission {
+        font-size: 13px;
+    }
+}

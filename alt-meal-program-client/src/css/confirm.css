@@ -1,0 +1,23 @@
+.confirm-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* gap: 0.25em; */
+}
+
+.my-confirms {
+    border-top: var(--line);
+    border-bottom: var(--line);
+    padding: 0.5em;
+    overflow-x: scroll;
+}
+
+.confirm-p {
+    font-size: 13px;
+    white-space: nowrap;
+    max-width: 100%;
+}
+
+.confirm-h {
+    margin-top: 0.5em;
+}

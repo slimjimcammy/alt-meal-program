@@ -1,0 +1,266 @@
+#orderform {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.order {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em;
+    border-radius: 0;
+    position: relative;
+}
+
+.cta1 {
+    position: absolute;
+    top: 0.5em;
+    left: 0.5em;
+    padding: 0.5em;
+}
+
+.cta2 {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    padding: 0.5em;
+}
+
+.cta3 {
+    position: absolute;
+    top: 3.5em;
+    right: 0.5em;
+    padding: 0.5em;
+}
+
+.cta {
+    display: grid;
+    place-items: center;
+    padding: 2px;
+    min-height: 1em;
+    height: 2em;
+    width: 2em;
+}
+
+.cta > img {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+#cta1-label {
+    display: grid;
+    place-items: center;
+    background-color: red;
+    border-radius: 100px;
+    border: 0.5px solid white;
+    padding-right: 1px;
+    width: 1.15em;
+    height: 1.25em;
+    position: absolute;
+    z-index: 3;
+    top: 0em;
+    left: 0em;
+}
+
+#cta1-label > p {
+    font-weight: 500;
+}
+
+.selectors {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    max-width: 100%;
+    width: 320px;
+}
+
+.selectors > label {
+    font-size: 16px;
+    margin-left: 4px;
+    font-weight: 500;
+}
+
+.menu-item {
+    font-size: 8px;
+}
+
+#first > button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 5px;
+    padding: 1em 1em;
+    width: 50%;
+    max-width: 80px;
+}
+
+#first > button > p {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.selectors > select {
+    position: relative;
+    padding: 0;
+    width: 100%;
+}
+
+.selectors > .submission {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 1em 1em;
+    width: 50%;
+    max-width: 150px;
+    border-radius: 100px;
+}
+
+#middle {
+    flex-direction: column;
+}
+
+#last {
+    flex-direction: column;
+}
+
+#last > textarea {
+    width: 100%;
+}
+
+::-webkit-calendar-picker-indicator, ::-webkit-time-picker-indicator {
+    filter: invert(99%) sepia(2%) saturate(112%) hue-rotate(358deg) brightness(119%) contrast(100%);
+}
+
+.hide-orders {
+    display: none;
+}
+
+.show-orders {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    gap: 1em;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    background: radial-gradient(ellipse, var(--gray), black);
+    background-color: black;
+    width: 100%;
+    max-width: 230px;
+    height: 100%;
+    padding: 1em;
+    border-left: var(--line);
+}
+
+.show-orders > .title {
+    font-size: 27px;
+}
+
+.hide-confirm {
+    display: none;
+}
+
+.show-confirm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3em;
+    background-color: var(--gray);
+    position: absolute;
+    z-index: 5;
+}
+
+.show-confirm > .title {
+    font-size: 25px;
+}
+
+.show-history {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    gap: 1em;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: radial-gradient(ellipse, var(--gray), black);
+    background-color: black;
+    width: 100%;
+    max-width: 230px;
+    height: 100%;
+    padding: 1em;
+    border-left: var(--line);
+}
+
+.show-history > .subtitle {
+    font-size: 15px;
+}
+
+.hide-history {
+    display: none;
+}
+
+.confirm-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.my-confirms {
+    border-top: var(--line);
+    border-bottom: var(--line);
+    padding: 1em;
+}
+
+.hide-dew, .hide-carm, .hide-AMP {
+    display: none;
+}
+
+.show-dew, .show-carm, .show-AMP {
+    padding: 1em;
+    margin-top: 1em;;
+    position: absolute;
+    width: 95%;
+    height: 95vh;
+    background-color: black;
+    z-index: 4;
+}
+
+.show-dew > .title,
+.show-carm > .title,
+.show-AMP > .title {
+    border-bottom: var(--line);
+    padding-bottom: 0.5em;
+    font-size: 25px;
+}
+
+.show-AMP > .subtitle {
+    margin-top: 1em;
+}
+
+#dew-quit, #carm-quit, #amp-quit {
+    top: 1em;
+    right: 1em;
+}
+
+@media (min-width: 650px) {
+    #middle {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 345px) {
+    .menu-item {
+        font-size: 10px;
+    }
+}
+
+@media (min-width: 450px) {
+    .menu-item {
+        font-size: 15px;
+    }
+}
