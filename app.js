@@ -12,12 +12,13 @@ const app = express();
 const emailer = require("./email");
 
 app.use((req, res, next) => {
-    if (req.protocol === 'http') {
+    if (req.headers['x-forwarded-proto'] !== 'https' && req.hostname !== 'localhost') {
       res.redirect(`https://${req.headers.host}${req.url}`);
     } else {
       next();
     }
 });
+  
 app.use(bodyParser.urlencoded( { extended: false } ));
 app.use(bodyParser.json());
 app.use(cors());
