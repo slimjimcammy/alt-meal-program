@@ -3,6 +3,7 @@ import axiosInstance from "./config.js";
 
 import "./css/log.css";
 import { Navigate, useNavigate } from "react-router-dom";
+import Axios from "axios";
 
 
 function Log() {
@@ -46,6 +47,7 @@ function Log() {
         console.log(att_password);
 
         console.log("in validate");
+        // Axios.post("http://localhost:8000/validate", {
         axiosInstance.post("/validate", {
             username: att_username,
             password: att_password
