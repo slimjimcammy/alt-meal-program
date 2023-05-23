@@ -80,7 +80,7 @@ function Administrator() {
                 </div>
                 <div className="form-item">
                 <label htmlFor="password">Password</label>
-                    <input name="password" type="text" onChange={(e) => {
+                    <input name="password" type="password" onChange={(e) => {
                         setPassword(e.target.value);
                     }} required />
                 </div>
