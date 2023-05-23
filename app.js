@@ -94,6 +94,7 @@ app.post("/delete", function(req, res) {
 // POST: validate user and log them in
 app.post("/validate", function(req, res) {
 
+    console.log("in backend validate")
     const username = req.body.username;
     const password = req.body.password;
 
