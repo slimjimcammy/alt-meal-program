@@ -1,6 +1,7 @@
 import Axios from "axios";
 
-export const axiosInstance = Axios.create({
+const axiosInstance = Axios.create({
     baseURL: "https://alternativemealprogram.herokuapp.com"
 });
 
+export default axiosInstance;
