@@ -11,7 +11,6 @@ const app = express();
 
 const emailer = require("./email");
 
-
 app.use(bodyParser.urlencoded( { extended: false } ));
 app.use(bodyParser.json());
 app.use(cors());
@@ -25,6 +24,15 @@ const dbConfig = {
 };
 
 const db = mysql.createPool(dbConfig);
+
+db.getConnection((err) => {
+    if (err) {
+        console.log("Error connecting to database");
+    }
+    else {
+        console.log("Successfully connected to database");
+    }
+});
 
 app.use(express.static(path.join(__dirname, './alt-meal-program-client/build')));
 
@@ -85,6 +93,7 @@ app.post("/delete", function(req, res) {
 
 // POST: validate user and log them in
 app.post("/validate", function(req, res) {
+
     const username = req.body.username;
     const password = req.body.password;
 
@@ -94,9 +103,10 @@ app.post("/validate", function(req, res) {
     db.query(
         sql, values, (error, result) => {
             if (error) {
-                res.send("Invalid Username or Password");
+                res.status(400).send("Invalid Username or Password");
             }
             else {
+                console.log("here");
                 res.send(result);
             }
         }
@@ -203,7 +213,7 @@ app.post("/change", function(req, res) {
             <body>
             <h1>Alternative Meal Program</h1>
             <p>Click the button below to change your password</p>
-            <a href="http://localhost:3000/changepassword" target="_blank" style="display:inline-block; background-color:#007bff; color:#fff; padding:10px 20px; text-decoration:none;">Change</a>
+            <a href="https://https://alternativemealprogram.herokuapp.com/changepassword" target="_blank" style="display:inline-block; background-color:#007bff; color:#fff; padding:10px 20px; text-decoration:none;">Change</a>
             </body>
         </html>
     `;

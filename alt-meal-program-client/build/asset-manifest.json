@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4357f135.css",
+    "main.js": "/static/js/main.9203a07c.js",
+    "index.html": "/index.html",
+    "static/media/orders.svg": "/static/media/orders.d3267bab71f485843aa5107044589784.svg",
+    "static/media/Home_light.svg": "/static/media/Home_light.414c1e11258462648b9ee64ecf1ab42c.svg",
+    "static/media/order.svg": "/static/media/order.04f9ef9f61aa50b612fda18db704e2ec.svg",
+    "static/media/Clock.svg": "/static/media/Clock.1f8b5be664e0269bbba639e224a20bdb.svg",
+    "static/media/user-plus.svg": "/static/media/user-plus.0aafe5cfc51ab62bb87f9a598fb0b2b7.svg",
+    "static/media/login.svg": "/static/media/login.deae891f9bcc4888a53da3833d849dfe.svg",
+    "static/media/plus.svg": "/static/media/plus.6eb7c277b796dc7d5fbc0dbd0d88a000.svg",
+    "main.4357f135.css.map": "/static/css/main.4357f135.css.map",
+    "main.9203a07c.js.map": "/static/js/main.9203a07c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4357f135.css",
+    "static/js/main.9203a07c.js"
+  ]
+}
