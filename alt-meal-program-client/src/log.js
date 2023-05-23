@@ -34,7 +34,8 @@ function Log() {
             alert(response.data);
         })
         .catch((error) => {
-            alert(error.response.data);
+            // alert(error.response.data);
+            console.log(error)
         })
 
         setSendEmail("");
@@ -47,7 +48,6 @@ function Log() {
         console.log(att_password);
 
         console.log("in validate");
-        // Axios.post("http://localhost:8000/validate", {
         axiosInstance.post("/validate", {
             username: att_username,
             password: att_password

@@ -230,8 +230,7 @@ app.post("/change", function(req, res) {
 
     transporter.sendMail(craftMessage, (error, info) => {
         if (error) {
-            console.log("Change email sent");
-            res.status(400).send('Invalid Email');
+            res.status(400).send(error);
         }
         else {
             res.send("Check your email for the link to change your password");
