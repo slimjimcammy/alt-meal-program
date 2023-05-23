@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Axios from "axios";
+import axiosInstance from "./config.js";
 
 import "./css/log.css";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -26,7 +26,7 @@ function Log() {
 
     const sendEmailToBack = (e) => {
         e.preventDefault();
-        Axios.post("https://alternativemealprogram.herokuapp.com/change", {
+        axiosInstance.post("/change", {
             email: sendEmail
         })
         .then((response) => {
@@ -46,7 +46,7 @@ function Log() {
         console.log(att_password);
 
         console.log("in validate");
-        Axios.post("https://alternativemealprogram.herokuapp.com/validate", {
+        axiosInstance.post("/validate", {
             username: att_username,
             password: att_password
         })

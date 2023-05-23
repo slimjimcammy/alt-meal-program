@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Axios from "axios";
+import axiosInstance from "./config.js";
 import "./css/administrator.css";
 import { useNavigate } from "react-router-dom";
 
@@ -27,7 +27,7 @@ function Administrator() {
 
     const addUser = (e) => {
 
-        Axios.post("https://alternativemealprogram.herokuapp.com/add", {
+        axiosInstance.post("/add", {
             name: name_reg,
             id: id_reg,
             email: email_reg,
@@ -44,7 +44,7 @@ function Administrator() {
 
     const deleteUser = (e) => {
 
-        Axios.post("https://localhost:8000/delete", {
+        axiosInstance.post("/delete", {
             id: id_del
         })
         .then((response) => {

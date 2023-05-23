@@ -1,6 +1,6 @@
 import "./css/newpass.css";
 import { useState } from "react";
-import Axios from "axios";
+import axiosInstance from "./config.js";
 
 function ChangePassword() {
 
@@ -12,7 +12,7 @@ function ChangePassword() {
         e.preventDefault();
         var change = false;
 
-        Axios.post("https://alternativemealprogram.herokuapp.com/newpass", {
+        axiosInstance.post("/newpass", {
             username: email,
             currPassword: oldPassword,
         })
@@ -28,7 +28,7 @@ function ChangePassword() {
     }
 
     const execute = () => {
-        Axios.post("https://alternativemealprogram.herokuapp.com/execute", {
+        axiosInstance.post("/execute", {
             username: email,
             newPassword: newPassword 
         })

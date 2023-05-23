@@ -5,7 +5,7 @@ import Order from "./order.js";
 import { useNavigate } from "react-router-dom";
 import Confirm from "./confirm.js";
 import Prev from "./prev.js";
-import Axios from "axios";
+import axiosInstance from "./config.js";
 import cta1 from "./images/orders.svg";
 import plus from "./images/plus.svg";
 import clock from "./images/Clock.svg";
@@ -261,7 +261,7 @@ function Orderpage() {
 
         const o_account = JSON.parse(localStorage.getItem("user"));
         
-        Axios.post("https://alternativemealprogram.herokuapp.com/send", {
+        axiosInstance.post("/send", {
             d_message: message_dew,
             c_message: message_carm,
             account: o_account[0]
@@ -277,7 +277,7 @@ function Orderpage() {
 
         const user = JSON.parse(localStorage.getItem("user"))[0];
 
-        Axios.post("https://alternativemealprogram.herokuapp.com/save", {
+        axiosInstance.post("/save", {
             orders: orders,
             UserID: user.UserID
         })
@@ -315,7 +315,7 @@ function Orderpage() {
         let prevOrders = [];
 
         if (prevs.length === 1) {
-            Axios.post("https://alternativemealprogram.herokuapp.com/retrieve", {
+            axiosInstance.post("/retrieve", {
                 id: userID
             })
             .then((response) => {
