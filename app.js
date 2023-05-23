@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const path = require('path')
 const cors = require("cors");
 const mysql = require("mysql");
 const nodemailer = require("nodemailer");
@@ -24,6 +25,12 @@ const dbConfig = {
 };
 
 const db = mysql.createPool(dbConfig);
+
+app.use(express.static(path.join(__dirname, './alt-meal-program-client/build')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/alt-meal-program-client/build', 'index.html'));
+});
 
 // ADMIN
 
@@ -275,10 +282,7 @@ app.post("/execute", function(req, res) {
 });
 
 // run server
-let port = process.env.PORT;
-if (port == null || port == "") {
-    port = 8000;
-}
+let port = process.env.PORT || 8000;
 
 app.listen(port, function() {
     console.log("Server started at port 8000");
