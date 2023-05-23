@@ -16,7 +16,7 @@ function Administrator() {
     const [id_del, setDelID] = useState("");
 
     useEffect(() => {
-        const admin = localStorage.getItem("admin-present");
+        const admin = sessionStorage.getItem("admin-present");
         if (admin !== "true" || admin === "undefined") {
             navigate("/order");
         }

@@ -53,7 +53,7 @@ function Orderpage() {
     const [spec_reg, setSpec] = useState("");
 
     useEffect(() => {
-        const user = localStorage.getItem("authenticated");
+        const user = sessionStorage.getItem("authenticated");
         if (!user || user === 'undefined') {
             navigate("/login");
         }
@@ -259,7 +259,7 @@ function Orderpage() {
 
     const handleSubmit = () => {
 
-        const o_account = JSON.parse(localStorage.getItem("user"));
+        const o_account = JSON.parse(sessionStorage.getItem("user"));
         
         axiosInstance.post("/send", {
             d_message: message_dew,
@@ -275,7 +275,7 @@ function Orderpage() {
             alert("There was an error sending the emails.")
         });
 
-        const user = JSON.parse(localStorage.getItem("user"))[0];
+        const user = JSON.parse(sessionStorage.getItem("user"))[0];
 
         axiosInstance.post("/save", {
             orders: orders,
@@ -311,7 +311,7 @@ function Orderpage() {
     const openHistory = (e) => {
         e.preventDefault();
 
-        const userID = JSON.parse(localStorage.getItem("user"))[0].UserID;
+        const userID = JSON.parse(sessionStorage.getItem("user"))[0].UserID;
         let prevOrders = [];
 
         if (prevs.length === 1) {

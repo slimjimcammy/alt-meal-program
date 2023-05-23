@@ -48,14 +48,14 @@ function Log() {
         })
         .then((response) => {
             if (response.data.length !== 0) {
-                localStorage.setItem("user", JSON.stringify(response.data));
-                localStorage.setItem("authenticated", true);
+                sessionStorage.setItem("user", JSON.stringify(response.data));
+                sessionStorage.setItem("authenticated", true);
                 if (response.data[0].isAdmin) {
-                    localStorage.setItem("admin-present", true);
+                    sessionStorage.setItem("admin-present", true);
                     navigate("/admin");
                 }
                 else {
-                    localStorage.setItem("admin-present", false);
+                    sessionStorage.setItem("admin-present", false);
                     navigate("/order");
                 }
             } 
