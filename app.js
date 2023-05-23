@@ -34,11 +34,11 @@ db.getConnection((err) => {
     }
 });
 
-app.use(express.static(path.join(__dirname, './alt-meal-program-client/build')));
+// app.use(express.static(path.join(__dirname, './alt-meal-program-client/build')));
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/alt-meal-program-client/build', 'index.html'));
-});
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname + '/alt-meal-program-client/build', 'index.html'));
+// });
 
 // ADMIN
 
@@ -94,7 +94,7 @@ app.post("/delete", function(req, res) {
 // POST: validate user and log them in
 app.post("/validate", function(req, res) {
 
-    console.log("in backend validate")
+    console.log("in backend validate");
     const username = req.body.username;
     const password = req.body.password;
 
@@ -104,7 +104,8 @@ app.post("/validate", function(req, res) {
     db.query(
         sql, values, (error, result) => {
             if (error) {
-                res.status(400).send("Invalid Username or Password");
+                console.error("in backend validate");
+                res.status(400).send(error);
             }
             else {
                 console.log("here");

@@ -46,7 +46,7 @@ function Log() {
         console.log(att_password);
 
         console.log("in validate");
-        Axios.post("https://alternativemealprogram.herokuapp.com/validate", {
+        Axios.post("http://https://alternativemealprogram.herokuapp.com/validate", {
             username: att_username,
             password: att_password
         })
