@@ -11,6 +11,13 @@ const app = express();
 
 const emailer = require("./email");
 
+app.use((req, res, next) => {
+    if (req.protocol === 'http') {
+      res.redirect(`https://${req.headers.host}${req.url}`);
+    } else {
+      next();
+    }
+});
 app.use(bodyParser.urlencoded( { extended: false } ));
 app.use(bodyParser.json());
 app.use(cors());
@@ -35,15 +42,6 @@ db.getConnection((err) => {
 });
 
 app.use(express.static(path.join(__dirname, './alt-meal-program-client/build')));
-
-app.use((req, res, next) => {
-    if (req.protocol === 'http') {
-      res.redirect(`https://${req.headers.host}${req.url}`);
-    } else {
-      next();
-    }
-  });
-  
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/alt-meal-program-client/build', 'index.html'));
