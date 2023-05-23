@@ -94,7 +94,6 @@ app.post("/delete", function(req, res) {
 // POST: validate user and log them in
 app.post("/validate", function(req, res) {
 
-    console.log("in backend validate");
     const username = req.body.username;
     const password = req.body.password;
 
@@ -104,11 +103,9 @@ app.post("/validate", function(req, res) {
     db.query(
         sql, values, (error, result) => {
             if (error) {
-                console.error("in backend validate");
                 res.status(400).send(error);
             }
             else {
-                console.log("here");
                 res.send(result);
             }
         }
@@ -215,7 +212,7 @@ app.post("/change", function(req, res) {
             <body>
             <h1>Alternative Meal Program</h1>
             <p>Click the button below to change your password</p>
-            <a href="https://https://alternativemealprogram.herokuapp.com/changepassword" target="_blank" style="display:inline-block; background-color:#007bff; color:#fff; padding:10px 20px; text-decoration:none;">Change</a>
+            <a href="https://alternativemealprogram.herokuapp.com/changepassword" target="_blank" style="display:inline-block; background-color:#007bff; color:#fff; padding:10px 20px; text-decoration:none;">Change</a>
             </body>
         </html>
     `;
@@ -230,7 +227,7 @@ app.post("/change", function(req, res) {
 
     transporter.sendMail(craftMessage, (error, info) => {
         if (error) {
-            res.status(400).send(error);
+            res.status(400).send("Invalid Email");
         }
         else {
             res.send("Check your email for the link to change your password");
@@ -251,7 +248,7 @@ app.post("/newpass", function(req, res) {
     db.query(
         sql, values, (error, result) => {
             if (error) {
-                console.log("Failed to match in database: ", error);
+                ("Failed to match in database: ", error);
             }
             else {
                 if (result.length > 0) {
@@ -260,7 +257,7 @@ app.post("/newpass", function(req, res) {
                 }
                 else {
                     res.status(400).send(false);
-                    console.log("Invalid")
+                    console.log("Couldn't find")
                 }
             }
         }
@@ -282,7 +279,6 @@ app.post("/execute", function(req, res) {
     db.query(
         sql, values, (error, result) => {
             if (error) {
-                console.log("Failed to update: ", error);
                 res.send("Failed to update password.");
             }
             else {

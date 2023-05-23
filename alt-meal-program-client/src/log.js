@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import axiosInstance from "./config.js";
 
 import "./css/log.css";
-import { Navigate, useNavigate } from "react-router-dom";
-import Axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 function Log() {
@@ -34,8 +33,7 @@ function Log() {
             alert(response.data);
         })
         .catch((error) => {
-            // alert(error.response.data);
-            console.log(error)
+            alert(error.response.data);
         })
 
         setSendEmail("");
@@ -44,28 +42,20 @@ function Log() {
     const validate = (e) => {
         e.preventDefault();
 
-        console.log(att_username);
-        console.log(att_password);
-
-        console.log("in validate");
         axiosInstance.post("/validate", {
             username: att_username,
             password: att_password
         })
         .then((response) => {
-            console.log("what?");
             if (response.data.length !== 0) {
                 localStorage.setItem("user", JSON.stringify(response.data));
                 localStorage.setItem("authenticated", true);
-                console.log(response);
                 if (response.data[0].isAdmin) {
-                    console.log("log admin");
                     localStorage.setItem("admin-present", true);
                     navigate("/admin");
                 }
                 else {
                     localStorage.setItem("admin-present", false);
-                    console.log("not log admin");
                     navigate("/order");
                 }
             } 
