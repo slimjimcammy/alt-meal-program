@@ -1,3 +1,3 @@
 <div align="center">
-        <img src="alt-meal-program-client/src/images/amp.png">
+        <img src="alt-meal-program-client/src/images/amp.png" width="200" height="100">
 </div>
