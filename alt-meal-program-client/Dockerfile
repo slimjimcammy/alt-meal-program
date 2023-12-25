@@ -1,5 +1,9 @@
 FROM node:14 as build
 
-RUN npm install serve
+COPY build .
 
-RUN serve -s build
+RUN npm install -g serve
+
+EXPOSE 3000
+
+CMD ["serve", "-s", "build"]
