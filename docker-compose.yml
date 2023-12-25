@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+    mysql:
+        image: mysql:latest
+        restart: unless-stopped
+        ports:
+            - "3306:3306"
+        environment:
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+            MYSQL_DATABASE: ${DB_NAME}
+        volumes:
+            - my-db:/var/lib/mysql
+
+    frontend:
+        build:
+            context: ./alt-meal-program-client
+        ports:
+            - "80:80"
+
+    backend:
+        build:
+            context: ./backend
+        ports:
+            - "8000:8000"
+        depends_on:
+            - mysql
+
+volumes:
+    my-db:
