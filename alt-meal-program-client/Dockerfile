@@ -10,7 +10,7 @@ COPY . .
 
 RUN npm run build
 
-FROM nginx:alpinej
+FROM nginx:alpine
 
 COPY --from=build /alt-meal-program-client/build /usr/share/nginx/html
 
