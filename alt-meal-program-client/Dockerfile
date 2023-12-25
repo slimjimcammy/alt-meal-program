@@ -1,3 +1,3 @@
 FROM node:14 as build
 
-CMD ["serve", "-s", "build"]
+RUN serve -s build
