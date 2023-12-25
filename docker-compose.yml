@@ -17,7 +17,7 @@ services:
         volumes:
             - /alt-meal-program-client/build:/usr/share/nginx/html
         ports:
-            - "80:80"
+            - "3000:3000"
 
     backend:
         build:
