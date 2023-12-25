@@ -12,19 +12,5 @@ services:
         volumes:
             - my-db:/var/lib/mysql
 
-    frontend:
-        build:
-            context: ./alt-meal-program-client
-        ports:
-            - "3000:3000"
-
-    backend:
-        build:
-            context: ./backend
-        ports:
-            - "8000:8000"
-        depends_on:
-            - mysql
-
 volumes:
     my-db:
