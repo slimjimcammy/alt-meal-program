@@ -2,8 +2,7 @@ FROM node:14 as build
 
 COPY build .
 
-RUN npm install -g serve
-
+FROM nginx:stable-alpine
+COPY --from=build /build /usr/share/nginx/html
 EXPOSE 3000
-
-CMD serve -s build
+CMD ["nginx", "-g", "daemon off;"]
