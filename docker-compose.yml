@@ -13,9 +13,8 @@ services:
             - my-db:/var/lib/mysql
 
     frontend:
-        image: nginx:alpine
-        volumes:
-            - /alt-meal-program-client/build:/usr/share/nginx/html
+        build:
+            context: ./alt-meal-program-client
         ports:
             - "3000:3000"
 
