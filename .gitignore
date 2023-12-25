@@ -9,7 +9,7 @@ backend/node_modules
 /coverage
 
 # production
-/build
+alt-meal-program-client/build
 
 # misc
 .DS_Store

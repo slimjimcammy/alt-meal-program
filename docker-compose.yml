@@ -13,8 +13,9 @@ services:
             - my-db:/var/lib/mysql
 
     frontend:
-        build:
-            context: ./alt-meal-program-client
+        image: nginx:alpine
+        volumes:
+            - /alt-meal-program-client/build:/usr/share/nginx/html
         ports:
             - "80:80"
 
