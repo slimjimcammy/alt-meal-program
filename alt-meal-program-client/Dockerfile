@@ -4,13 +4,13 @@ WORKDIR /alt-meal-program-client
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm install --production
 
 COPY . .
 
 RUN npm run build
 
-FROM nginx:alpine
+FROM nginx:alpinej
 
 COPY --from=build /alt-meal-program-client/build /usr/share/nginx/html
 
